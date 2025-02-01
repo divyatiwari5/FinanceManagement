@@ -1,9 +1,9 @@
 import "./App.css";
-import Header from "./components/Header.tsx";
-import { NavBar } from "./components/NavBar/NavBar.tsx";
+import Header from "./components/Header";
+import { NavBar } from "./components/NavBar/NavBar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Dashboard from "./pages/Dashboard.tsx";
-import Settings from "./pages/Settings.tsx";
+import Dashboard from "./pages/Dashboard";
+import Settings from "./pages/Settings";
 
 function App() {
   return (
