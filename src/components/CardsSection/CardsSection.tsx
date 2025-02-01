@@ -5,7 +5,7 @@ interface CardData {
   cardHolder: string;
   cardNumber: string;
   validThru: string;
-  variant: 'dark' | 'light';
+  variant: "dark" | "light";
 }
 
 interface CardsSectionProps {
@@ -16,11 +16,15 @@ const CardsSection = ({ cards }: CardsSectionProps) => {
   return (
     <div className="col-span-2 mb-8">
       <div className="flex justify-between items-center mb-4">
-        <h2 className="text-[22px] leading-[26px] text-primaryIndigo font-semibold">My Cards</h2>
-        <button className="text-primaryIndigo text-[17px] font-semibold leading-5">See All</button>
+        <h2 className="text-[22px] leading-[26px] text-primaryIndigo font-semibold">
+          My Cards
+        </h2>
+        <button className="text-primaryIndigo text-[17px] font-semibold leading-5">
+          See All
+        </button>
       </div>
 
-      <div className="flex gap-4">
+      <div className="flex gap-[30px]">
         {cards.map((card, index) => (
           <Card
             key={index}
@@ -36,4 +40,4 @@ const CardsSection = ({ cards }: CardsSectionProps) => {
   );
 };
 
-export default CardsSection; 
+export default CardsSection;

@@ -18,16 +18,18 @@ const Card = ({
 }: CardProps) => {
   const cardStyles = {
     dark: "bg-[linear-gradient(107.38deg,#5B5A6F_2.61%,#000000_101.2%)] text-white",
-    light: "bg-gradient-to-r to-white text-gray-800 border border-gray-200",
+    light: "bg-white text-primaryIndigo border border-grey",
   };
 
   const labelStyles = {
     dark: "text-white",
-    light: "text-gray-500",
+    light: "text-primaryBlue",
   };
 
   return (
-    <div className={`${cardStyles[variant]} rounded-[25px] w-[350px] shadow-lg`}>
+    <div
+      className={`${cardStyles[variant]} rounded-[25px] w-[350px] h-[235px]`}
+    >
       <div className="flex flex-row justify-between px-[26px] pt-6">
         <div className="mb-6 text-left">
           <p className={`${labelStyles[variant]} text-xs font-lato`}>Balance</p>
@@ -37,7 +39,7 @@ const Card = ({
         </div>
 
         <div>
-          <FcSimCardChip size={32} />
+          <FcSimCardChip size={34} />
         </div>
       </div>
 
@@ -56,7 +58,9 @@ const Card = ({
         </div>
       </div>
 
-      <div className="bg-[linear-gradient(180deg,rgba(255,255,255,0.15)_0%,rgba(255,255,255,0)_100%)]">
+      <div className={`${
+        variant === "light" ? "border-t-[1px] border-grey" : ""
+      } bg-[linear-gradient(180deg,rgba(255,255,255,0.15)_0%,rgba(255,255,255,0)_100%)]`}>
         <div className="px-[26px] py-[22px] flex justify-between items-end">
           <div>
             <p className="font-semibold text-[22px] font-lato">{cardNumber}</p>
