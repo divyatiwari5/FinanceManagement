@@ -5,6 +5,23 @@ import { FaPaypal } from "react-icons/fa";
 import { BiTransfer } from "react-icons/bi";
 
 const Dashboard = () => {
+  const cards = [
+    {
+      balance: 5756,
+      cardHolder: "Eddy Cusuma",
+      cardNumber: "3778 **** **** 1234",
+      validThru: "12/22",
+      variant: "dark" as const
+    },
+    {
+      balance: 5756,
+      cardHolder: "Eddy Cusuma",
+      cardNumber: "3778 **** **** 1234",
+      validThru: "12/22",
+      variant: "light" as const
+    }
+  ];
+
   const transactions = [
     {
       icon: BsCreditCard,
@@ -31,10 +48,8 @@ const Dashboard = () => {
 
   return (
     <div className="p-6 bg-lightBlue">
-      <h1 className="text-2xl text-indigo-900 mb-6">Overview</h1>
-
       <div className="grid grid-cols-3 gap-6">
-        <CardsSection />
+        <CardsSection cards={cards} />
         <TransactionsSection transactions={transactions} />
       </div>
 

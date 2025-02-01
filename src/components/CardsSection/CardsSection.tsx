@@ -1,28 +1,36 @@
 import Card from "./Card";
 
-const CardsSection = () => {
+interface CardData {
+  balance: number;
+  cardHolder: string;
+  cardNumber: string;
+  validThru: string;
+  variant: 'dark' | 'light';
+}
+
+interface CardsSectionProps {
+  cards: CardData[];
+}
+
+const CardsSection = ({ cards }: CardsSectionProps) => {
   return (
     <div className="col-span-2 mb-8">
       <div className="flex justify-between items-center mb-4">
-        <h2 className="text-xl text-indigo-900">My Cards</h2>
-        <button className="text-indigo-600">See All</button>
+        <h2 className="text-[22px] leading-[26px] text-primaryIndigo font-semibold">My Cards</h2>
+        <button className="text-primaryIndigo text-[17px] font-semibold leading-5">See All</button>
       </div>
 
       <div className="flex gap-4">
-        <Card
-          balance={5756}
-          cardHolder="Eddy Cusuma"
-          cardNumber="3778 **** **** 1234"
-          validThru="12/22"
-          variant="dark"
-        />
-        <Card
-          balance={5756}
-          cardHolder="Eddy Cusuma"
-          cardNumber="3778 **** **** 1234"
-          validThru="12/22"
-          variant="light"
-        />
+        {cards.map((card, index) => (
+          <Card
+            key={index}
+            balance={card.balance}
+            cardHolder={card.cardHolder}
+            cardNumber={card.cardNumber}
+            validThru={card.validThru}
+            variant={card.variant}
+          />
+        ))}
       </div>
     </div>
   );

@@ -17,46 +17,53 @@ const Card = ({
   variant = "dark",
 }: CardProps) => {
   const cardStyles = {
-    dark: "bg-gradient-to-r from-gray-800 to-gray-700 text-white",
-    light:
-      "bg-gradient-to-r from-gray-100 to-white text-gray-800 border border-gray-200",
+    dark: "bg-[linear-gradient(107.38deg,#5B5A6F_2.61%,#000000_101.2%)] text-white",
+    light: "bg-gradient-to-r to-white text-gray-800 border border-gray-200",
   };
 
   const labelStyles = {
-    dark: "text-gray-400",
+    dark: "text-white",
     light: "text-gray-500",
   };
 
   return (
-    <div className={`${cardStyles[variant]} p-6 rounded-[25px] w-96 shadow-lg`}>
-      <div className="flex flex-row justify-between">
+    <div className={`${cardStyles[variant]} rounded-[25px] w-[350px] shadow-lg`}>
+      <div className="flex flex-row justify-between px-[26px] pt-6">
         <div className="mb-6 text-left">
-          <p className={`${labelStyles[variant]} text-sm`}>Balance</p>
-          <p className="text-2xl font-semibold">${balance.toLocaleString()}</p>
-          </div>
+          <p className={`${labelStyles[variant]} text-xs font-lato`}>Balance</p>
+          <p className="text-xl font-semibold font-lato">
+            ${balance.toLocaleString()}
+          </p>
+        </div>
 
+        <div>
+          <FcSimCardChip size={32} />
+        </div>
+      </div>
+
+      <div className="flex gap-14 px-[26px] text-left">
+        <div className="mb-9">
+          <p className={`${labelStyles[variant]} text-xs font-lato`}>
+            CARD HOLDER
+          </p>
+          <p className="font-semibold text-[15px] font-lato">{cardHolder}</p>
+        </div>
+        <div>
+          <p className={`${labelStyles[variant]} text-xs font-lato`}>
+            VALID THRU
+          </p>
+          <p className="font-lato font-semibold text-[15px]">{validThru}</p>
+        </div>
+      </div>
+
+      <div className="bg-[linear-gradient(180deg,rgba(255,255,255,0.15)_0%,rgba(255,255,255,0)_100%)]">
+        <div className="px-[26px] py-[22px] flex justify-between items-end">
           <div>
-            <FcSimCardChip size={32} />
+            <p className="font-semibold text-[22px] font-lato">{cardNumber}</p>
           </div>
-      </div>
-
-      <div className="flex gap-14">
-        <div className="mb-6">
-          <p className={`${labelStyles[variant]} text-sm`}>CARD HOLDER</p>
-          <p className="font-medium">{cardHolder}</p>
-        </div>
-        <div>
-          <p className={`${labelStyles[variant]} text-sm`}>VALID THRU</p>
-          <p>{validThru}</p>
-        </div>
-      </div>
-
-      <div className="flex justify-between items-end">
-        <div>
-          <p className="font-medium">{cardNumber}</p>
-        </div>
-        <div className="w-12 h-8">
-          <BiLogoMastercard size={32} />
+          <div className="w-12 h-8">
+            <BiLogoMastercard size={32} />
+          </div>
         </div>
       </div>
     </div>
