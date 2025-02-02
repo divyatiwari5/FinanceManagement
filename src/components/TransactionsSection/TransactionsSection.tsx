@@ -18,13 +18,13 @@ const TransactionsSection: React.FC<TransactionsSectionProps> = ({
   transactions,
 }) => {
   return (
-    <div className="col-span-1 mb-8">
+    <div className="col-span-1 mb-8 w-[350px]">
       <h2 className="text-[22px] mb-5 text-left font-semibold text-primaryIndigo leading-[26px]">
         Recent Transaction
       </h2>
 
-      <div className="bg-white rounded-3xl p-4">
-        <div className="divide-y">
+      <div className="bg-white rounded-3xl p-4 h-[235px]">
+        <div className="text-left flex flex-col gap-[10px]">
           {transactions.map((transaction, index) => (
             <Transaction
               key={index}

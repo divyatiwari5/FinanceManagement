@@ -12,7 +12,7 @@ const Transaction = ({ icon: Icon, title, date, amount, iconBgColor = 'bg-yellow
   const isPositive = amount > 0;
 
   return (
-    <div className="flex items-center justify-between py-3">
+    <div className="flex items-center justify-between h-14 gap-[10px]">
       <div className="flex items-center gap-3">
         <div className={`${iconBgColor} p-2 rounded-full`}>
           <Icon size={24} />
