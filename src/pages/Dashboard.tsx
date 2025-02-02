@@ -4,6 +4,7 @@ import TransactionsSection from "../components/TransactionsSection/TransactionsS
 import { BsCreditCard } from "react-icons/bs";
 import { FaPaypal } from "react-icons/fa";
 import { BiTransfer } from "react-icons/bi";
+import { ExpenseStatistics } from "../components/ExpenseStatistics/ExpenseStatistics";
 
 const Dashboard = () => {
   const cards = [
@@ -64,6 +65,7 @@ const Dashboard = () => {
         <div className="bg-white rounded-xl p-6 col-span-1">
           <h2 className="text-xl text-indigo-900 mb-4">Expense Statistics</h2>
           {/* Add Expense Statistics content here */}
+          <ExpenseStatistics />
         </div>
       </div>
     </div>
