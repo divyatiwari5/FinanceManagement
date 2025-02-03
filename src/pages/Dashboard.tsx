@@ -57,13 +57,11 @@ const Dashboard = () => {
 
       {/* Weekly Activity and Expense Statistics Section */}
       <div className="grid grid-cols-3 gap-6">
-        <div className="bg-white rounded-xl p-6 col-span-2">
-          <h2 className="text-xl text-indigo-900 mb-4">Weekly Activity</h2>
+        <div className="col-span-2">
           <WeeklyActivity />
         </div>
 
-        <div className="bg-white rounded-xl p-6 col-span-1">
-          <h2 className="text-xl text-indigo-900 mb-4">Expense Statistics</h2>
+        <div className="col-span-1">
           {/* Add Expense Statistics content here */}
           <ExpenseStatistics />
         </div>

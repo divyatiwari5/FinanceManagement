@@ -98,39 +98,17 @@ export const ExpenseStatistics = () => {
       .attr("dy", "1.2em")
       .attr("font-size", "1rem")
       .attr("font-weight", "700");
-
-    // Add legend at the bottom
-    const legend = svg
-      .append("g")
-      .attr("transform", `translate(${-width / 2},${height / 2 + 20})`);
-
-    const legendItems = legend
-      .selectAll("g")
-      .data(data)
-      .enter()
-      .append("g")
-      .attr("transform", (d, i) => `translate(${i * (width / 2)}, 0)`);
-
-    legendItems
-      .append("circle")
-      .attr("cx", 10)
-      .attr("cy", 10)
-      .attr("r", 5)
-      .attr("fill", (d) => d.color);
-
-    legendItems
-      .append("text")
-      .attr("x", 20)
-      .attr("y", 10)
-      .attr("dy", "0.35em")
-      .text((d) => d.category)
-      .attr("font-size", "12px")
-      .attr("fill", "currentColor");
+    
   }, []);
 
   return (
-    <div className="flex flex-col items-center">
-      <svg ref={svgRef}></svg>
+    <div className="h-full">
+      <h2 className="text-[22px] leading-[26px] text-primaryIndigo font-semibold text-left mb-[18px]">
+        Expense Statistics
+      </h2>
+      <div className="flex flex-col items-center bg-white rounded-xl h-[calc(100%-44px)]">
+        <svg ref={svgRef}></svg>
+      </div>
     </div>
   );
 };

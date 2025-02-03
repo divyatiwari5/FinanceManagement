@@ -1,6 +1,6 @@
 import { useEffect, useRef, useMemo } from "react";
 import * as d3 from "d3";
-import { colors } from '../../style/global/colors';
+import { colors } from "../../style/global/colors";
 
 interface ActivityData {
   day: string;
@@ -16,7 +16,6 @@ const data: ActivityData[] = [
   { day: "Wed", deposit: 230, withdraw: 150 },
   { day: "Thu", deposit: 230, withdraw: 380 },
   { day: "Fri", deposit: 320, withdraw: 370 },
-  
 ];
 
 const WeeklyActivity = () => {
@@ -25,21 +24,24 @@ const WeeklyActivity = () => {
   // Memoize chart configurations
   const chartConfig = useMemo(() => {
     const margin = { top: 40, right: 40, bottom: 40, left: 60 };
-    const width = 600; 
+    const width = 600;
     const height = 300;
     // Memoize scales
-    const x0 = d3.scaleBand()
-      .domain(data.map(d => d.day))
+    const x0 = d3
+      .scaleBand()
+      .domain(data.map((d) => d.day))
       .range([0, width])
       .padding(0.2);
 
-    const x1 = d3.scaleBand()
+    const x1 = d3
+      .scaleBand()
       .domain(["deposit", "withdraw"])
       .range([0, x0.bandwidth()])
       .padding(0.05);
 
-    const y = d3.scaleLinear()
-      .domain([0, d3.max(data, d => Math.max(d.deposit, d.withdraw)) || 500])
+    const y = d3
+      .scaleLinear()
+      .domain([0, d3.max(data, (d) => Math.max(d.deposit, d.withdraw)) || 500])
       .range([height, 0]);
 
     return { margin, width, height, x0, x1, y };
@@ -54,22 +56,30 @@ const WeeklyActivity = () => {
     d3.select(svgRef.current).selectAll("*").remove();
 
     // Set viewBox to maintain aspect ratio and fit content
-    const svg = d3.select(svgRef.current)
-      .attr("viewBox", `0 0 ${width + margin.left + margin.right} ${height + margin.top + margin.bottom}`)
+    const svg = d3
+      .select(svgRef.current)
+      .attr(
+        "viewBox",
+        `0 0 ${width + margin.left + margin.right} ${
+          height + margin.top + margin.bottom
+        }`
+      )
       .append("g")
       .attr("transform", `translate(${margin.left},${margin.top})`);
 
     // Create axes
     const createAxis = () => {
       // X axis
-      svg.append("g")
+      svg
+        .append("g")
         .attr("transform", `translate(0,${height})`)
         .call(d3.axisBottom(x0))
         .selectAll("text")
         .style("color", colors.primaryBlue);
 
       // Y axis
-      svg.append("g")
+      svg
+        .append("g")
         .call(d3.axisLeft(y).ticks(5))
         .selectAll("text")
         .style("color", colors.primaryBlue);
@@ -77,21 +87,26 @@ const WeeklyActivity = () => {
 
     // Create bars
     const createBars = () => {
-      const dayGroups = svg.selectAll<SVGGElement, ActivityData>(".day-group")
+      const dayGroups = svg
+        .selectAll<SVGGElement, ActivityData>(".day-group")
         .data(data)
         .join("g")
         .attr("class", "day-group")
-        .attr("transform", d => `translate(${x0(d.day)},0)`);
+        .attr("transform", (d) => `translate(${x0(d.day)},0)`);
 
       // Helper function to create bars
       const createBar = (key: "deposit" | "withdraw") => {
-        dayGroups.append("rect")
+        dayGroups
+          .append("rect")
           .attr("class", `${key}-bar`)
           .attr("x", x1(key) || 0)
-          .attr("y", d => y(d[key]))
-          .attr("width", '15px')
-          .attr("height", d => height - y(d[key]))
-          .attr("fill", key === "deposit" ? colors.primaryBlack :  colors.flourescentBlue)
+          .attr("y", (d) => y(d[key]))
+          .attr("width", "15px")
+          .attr("height", (d) => height - y(d[key]))
+          .attr(
+            "fill",
+            key === "deposit" ? colors.primaryBlack : colors.flourescentBlue
+          )
           .attr("ry", 8); // Add rounded corners
       };
 
@@ -101,22 +116,25 @@ const WeeklyActivity = () => {
 
     // Create legend
     const createLegend = () => {
-      const legend = svg.append("g")
+      const legend = svg
+        .append("g")
         .attr("transform", `translate(${width - 150}, -10)`);
 
       const legendData = [
         { label: "Deposit", color: colors.primaryBlack, x: 0 },
-        { label: "Withdraw", color: colors.flourescentBlue, x: 80 }
+        { label: "Withdraw", color: colors.flourescentBlue, x: 80 },
       ];
 
       legendData.forEach(({ label, color, x }) => {
-        legend.append("rect")
+        legend
+          .append("rect")
           .attr("width", 12)
           .attr("height", 12)
           .attr("fill", color)
           .attr("transform", `translate(${x}, 0)`);
 
-        legend.append("text")
+        legend
+          .append("text")
           .attr("x", x + 20)
           .attr("y", 10)
           .text(label)
@@ -129,17 +147,21 @@ const WeeklyActivity = () => {
     createAxis();
     createBars();
     createLegend();
-
   }, [chartConfig]); // Only re-render when chartConfig changes
 
   return (
-    <div className="w-full h-full min-h-[400px]">
-      <svg 
-        ref={svgRef} 
-        className="w-full h-full"
-        style={{ maxWidth: '100%' }}
-        preserveAspectRatio="xMinYMin meet"
-      />
+    <div>
+      <h2 className="text-[22px] leading-[26px] text-primaryIndigo font-semibold text-left mb-[18px]">
+        Weekly Activity
+      </h2>
+      <div className="w-full h-full min-h-[400px] bg-white rounded-xl">
+        <svg
+          ref={svgRef}
+          className="w-full h-full"
+          style={{ maxWidth: "100%" }}
+          preserveAspectRatio="xMinYMin meet"
+        />
+      </div>
     </div>
   );
 };
