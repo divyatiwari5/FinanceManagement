@@ -25,8 +25,8 @@ export const ExpenseStatistics = () => {
     d3.select(svgRef.current).selectAll("*").remove();
 
     // Set up dimensions
-    const width = 300;
-    const height = 300;
+    const width = 260;
+    const height = 260;
     const radius = Math.min(width, height) / 2;
 
     // Create SVG
