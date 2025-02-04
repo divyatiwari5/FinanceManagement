@@ -6,6 +6,7 @@ import { FaPaypal } from "react-icons/fa";
 import { BiTransfer } from "react-icons/bi";
 import { ExpenseStatistics } from "../components/ExpenseStatistics/ExpenseStatistics";
 import { QuickTransfer } from "../components/QuickTransfer/QuickTransfer";
+import { BalanceHistory } from "../components/BalanceHistory/BalanceHistory";
 
 const Dashboard = () => {
   const cards = [
@@ -72,6 +73,7 @@ const Dashboard = () => {
           <QuickTransfer />
         </div>
         <div className="col-span-4">
+          <BalanceHistory />
         </div>
       </div>
     </div>
