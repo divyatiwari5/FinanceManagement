@@ -8,4 +8,5 @@ export const colors = {
     grey: '#DFEAF2',
     flourescentBlue: '#396AFF',
     orange: '#FC7900',
+    violet: '#1814F3'
 }

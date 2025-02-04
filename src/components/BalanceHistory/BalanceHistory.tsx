@@ -77,7 +77,7 @@ export const BalanceHistory = () => {
       .attr("y2", height)
       .style("stroke", "#DFE5EE")
       .style("stroke-opacity", "1")
-      .style("stroke-dasharray", "2,2");
+      .style("stroke-dasharray", "2,2")
 
     // Add the area
     const area = d3
@@ -87,13 +87,34 @@ export const BalanceHistory = () => {
       .y1((d) => y(d.value))
       .curve(d3.curveCatmullRom);
 
-    // Add the area path
+    // Define gradient
+    const gradient = svg
+      .append("defs")
+      .append("linearGradient")
+      .attr("id", "area-gradient")
+      .attr("gradientUnits", "userSpaceOnUse")
+      .attr("x1", "0")
+      .attr("y1", "0")
+      .attr("x2", "0")
+      .attr("y2", height);
+
+    gradient
+      .append("stop")
+      .attr("offset", "0%")
+      .attr("stop-color", `${colors.violet}40`); // 25% opacity
+
+    gradient
+      .append("stop")
+      .attr("offset", "100%")
+      .attr("stop-color", `${colors.violet}00`); // 0% opacity
+
+    // Update the area path to use gradient
     svg
       .append("path")
       .datum(data)
       .attr("class", "area")
       .attr("d", area)
-      .attr("fill", `${colors.primaryIndigo}20`);
+      .attr("fill", "url(#area-gradient)");
 
     // Create line generator
     const line = d3
@@ -107,8 +128,8 @@ export const BalanceHistory = () => {
       .append("path")
       .datum(data)
       .attr("fill", "none")
-      .attr("stroke", colors.primaryIndigo)
-      .attr("stroke-width", 2)
+      .attr("stroke", colors.violet)
+      .attr("stroke-width", 3)
       .attr("d", line);
 
     // Add x-axis
@@ -117,7 +138,11 @@ export const BalanceHistory = () => {
       .attr("transform", `translate(0,${height})`)
       .call(d3.axisBottom(x))
       .call((g) => g.select(".domain").remove())
-      .call((g) => g.selectAll(".tick line").remove());
+      .call((g) => g.selectAll(".tick line").remove())
+      .attr("class", "axis-text")
+      .style("font-size", "14px")
+      .style("font-weight", "500")
+      .style("color", "#64748B");
 
     // Add y-axis
     svg
@@ -129,7 +154,11 @@ export const BalanceHistory = () => {
           .tickFormat((d) => `${d}`)
       )
       .call((g) => g.select(".domain").remove())
-      .call((g) => g.selectAll(".tick line").remove());
+      .call((g) => g.selectAll(".tick line").remove())
+      .attr("class", "axis-text")
+      .style("font-size", "14px")
+      .style("font-weight", "500")
+      .style("color", "#64748B");
   }, []);
 
   return (
