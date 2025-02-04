@@ -25,7 +25,7 @@ const WeeklyActivity = () => {
   const chartConfig = useMemo(() => {
     const margin = { top: 40, right: 40, bottom: 40, left: 60 };
     const width = 600;
-    const height = 300;
+    const height = 200;
     // Memoize scales
     const x0 = d3
       .scaleBand()
@@ -41,7 +41,7 @@ const WeeklyActivity = () => {
 
     const y = d3
       .scaleLinear()
-      .domain([0, d3.max(data, (d) => Math.max(d.deposit, d.withdraw)) || 500])
+      .domain([0, 500])
       .range([height, 0]);
 
     return { margin, width, height, x0, x1, y };
@@ -66,6 +66,23 @@ const WeeklyActivity = () => {
       )
       .append("g")
       .attr("transform", `translate(${margin.left},${margin.top})`);
+
+    // Add horizontal grid lines
+    svg
+      .append("g")
+      .attr("class", "grid")
+      .call(
+        d3.axisLeft(y)
+          .ticks(5)
+          .tickSize(-width)
+          .tickFormat(() => "")
+      )
+      .call(g => g.select(".domain").remove())
+      .call(g => 
+        g.selectAll(".tick line")
+          .attr("stroke-opacity", 0.1)
+          .attr("stroke", colors.primaryBlue)
+      );
 
     // Create axes
     const createAxis = () => {
@@ -154,7 +171,7 @@ const WeeklyActivity = () => {
       <h2 className="text-[22px] leading-[26px] text-primaryIndigo font-semibold text-left mb-[18px]">
         Weekly Activity
       </h2>
-      <div className="w-full h-full min-h-[400px] bg-white rounded-xl">
+      <div className="w-full h-full min-h-[250px] bg-white rounded-xl">
         <svg
           ref={svgRef}
           className="w-full h-full"
