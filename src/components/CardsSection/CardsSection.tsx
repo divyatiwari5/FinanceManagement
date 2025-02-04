@@ -24,7 +24,7 @@ const CardsSection = ({ cards }: CardsSectionProps) => {
         </button>
       </div>
 
-      <div className="flex gap-[30px]">
+      <div className="flex overflow-x-auto gap-[30px] pb-4 -mx-4 px-4 md:mx-0">
         {cards.map((card, index) => (
           <Card
             key={index}

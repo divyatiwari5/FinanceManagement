@@ -28,45 +28,45 @@ const Card = ({
 
   return (
     <div
-      className={`${cardStyles[variant]} rounded-[25px] w-[350px] h-[235px]`}
+      className={`${cardStyles[variant]} rounded-[25px] w-[280px] md:w-[350px] h-[200px] md:h-[235px] flex-shrink-0`}
     >
-      <div className="flex flex-row justify-between px-[26px] pt-6">
-        <div className="mb-6 text-left">
-          <p className={`${labelStyles[variant]} text-xs font-lato`}>Balance</p>
-          <p className="text-xl font-semibold font-lato">
+      <div className="flex flex-row justify-between px-5 md:px-[26px] pt-4 md:pt-6">
+        <div className="mb-4 md:mb-6 text-left">
+          <p className={`${labelStyles[variant]} text-[10px] md:text-xs font-lato`}>Balance</p>
+          <p className="text-lg md:text-xl font-semibold font-lato">
             ${balance.toLocaleString()}
           </p>
         </div>
 
         <div>
-          <FcSimCardChip size={34} />
+          <FcSimCardChip className="w-7 h-7 md:w-[34px] md:h-[34px]" />
         </div>
       </div>
 
-      <div className="flex gap-14 px-[26px] text-left">
-        <div className="mb-9">
-          <p className={`${labelStyles[variant]} text-xs font-lato`}>
+      <div className="flex gap-8 md:gap-14 px-5 md:px-[26px] text-left">
+        <div className="mb-6 md:mb-9">
+          <p className={`${labelStyles[variant]} text-[10px] md:text-xs font-lato`}>
             CARD HOLDER
           </p>
-          <p className="font-semibold text-[15px] font-lato">{cardHolder}</p>
+          <p className="font-semibold text-[13px] md:text-[15px] font-lato">{cardHolder}</p>
         </div>
         <div>
-          <p className={`${labelStyles[variant]} text-xs font-lato`}>
+          <p className={`${labelStyles[variant]} text-[10px] md:text-xs font-lato`}>
             VALID THRU
           </p>
-          <p className="font-lato font-semibold text-[15px]">{validThru}</p>
+          <p className="font-lato font-semibold text-[13px] md:text-[15px]">{validThru}</p>
         </div>
       </div>
 
       <div className={`${
         variant === "light" ? "border-t-[1px] border-grey" : ""
       } bg-[linear-gradient(180deg,rgba(255,255,255,0.15)_0%,rgba(255,255,255,0)_100%)]`}>
-        <div className="px-[26px] py-[22px] flex justify-between items-end">
+        <div className="px-5 md:px-[26px] py-4 md:py-[22px] flex justify-between items-end">
           <div>
-            <p className="font-semibold text-[22px] font-lato">{cardNumber}</p>
+            <p className="font-semibold text-lg md:text-[22px] font-lato">{cardNumber}</p>
           </div>
-          <div className="w-12 h-8">
-            <BiLogoMastercard size={32} />
+          <div className="w-8 h-6 md:w-12 md:h-8">
+            <BiLogoMastercard className="w-full h-full" />
           </div>
         </div>
       </div>
