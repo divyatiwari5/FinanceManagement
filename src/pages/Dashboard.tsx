@@ -5,6 +5,7 @@ import { BsCreditCard } from "react-icons/bs";
 import { FaPaypal } from "react-icons/fa";
 import { BiTransfer } from "react-icons/bi";
 import { ExpenseStatistics } from "../components/ExpenseStatistics/ExpenseStatistics";
+import { QuickTransfer } from "../components/QuickTransfer/QuickTransfer";
 
 const Dashboard = () => {
   const cards = [
@@ -56,14 +57,21 @@ const Dashboard = () => {
       </div>
 
       {/* Weekly Activity and Expense Statistics Section */}
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid grid-cols-3 gap-6 mb-6">
         <div className="col-span-2">
           <WeeklyActivity />
         </div>
-
         <div className="col-span-1">
-          {/* Add Expense Statistics content here */}
           <ExpenseStatistics />
+        </div>
+      </div>
+
+      {/* Quick Transfer and Balance History Section */}
+      <div className="grid grid-cols-7 gap-6">
+        <div className="col-span-3">
+          <QuickTransfer />
+        </div>
+        <div className="col-span-4">
         </div>
       </div>
     </div>

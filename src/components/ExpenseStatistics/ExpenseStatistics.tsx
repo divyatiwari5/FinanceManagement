@@ -107,7 +107,7 @@ export const ExpenseStatistics = () => {
         Expense Statistics
       </h2>
       <div className="flex flex-col items-center bg-white rounded-xl h-[calc(100%-44px)]">
-        <svg ref={svgRef}></svg>
+        <svg ref={svgRef} className="m-auto"></svg>
       </div>
     </div>
   );
