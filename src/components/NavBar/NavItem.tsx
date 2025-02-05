@@ -1,5 +1,6 @@
 import React from "react";
 import { IconType } from "react-icons";
+import { Link } from "react-router-dom";
 
 interface NavItemProps {
   icon: IconType | React.FC<{ isActive?: boolean }>;
@@ -15,8 +16,8 @@ const NavItem = ({
   href,
 }: NavItemProps) => {
   return (
-    <a
-      href={href}
+    <Link
+      to={href}
       className={`flex items-center gap-3 transition-colors h-[60px] pl-9
       ${
         isActive
@@ -24,11 +25,11 @@ const NavItem = ({
           : "text-darkGrey"
       }`}
     >
-      {React.isValidElement(<Icon />) 
-        ? <Icon size={25} /> 
-        : <Icon isActive={isActive} />}
+      {('prototype' in Icon) 
+        ? React.createElement(Icon as IconType, { size: 25, color: isActive ? "#232323" : "#B1B1B1" })
+        : React.createElement(Icon as React.FC<{ isActive?: boolean }>, { isActive })}
       <span className="text-lg font-medium">{label}</span>
-    </a>
+    </Link>
   );
 };
 
