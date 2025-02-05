@@ -58,15 +58,15 @@ const Dashboard = () => {
   ];
 
   return (
-    <div className="p-6 px-10 bg-white lg:bg-lightBlue">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div className="px-6 lg:p-6 lg:px-10 bg-white lg:bg-lightBlue">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <CardsSection cards={cards} />
         <TransactionsSection transactions={transactions} />
       </div>
 
       {/* Weekly Activity and Expense Statistics Section */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-        <div className="col-span-1 md:col-span-2">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+        <div className="col-span-1 lg:col-span-2">
           <WeeklyActivity />
         </div>
         <div className="col-span-1">
@@ -75,11 +75,11 @@ const Dashboard = () => {
       </div>
 
       {/* Quick Transfer and Balance History Section */}
-      <div className="grid grid-cols-1 md:grid-cols-7 gap-6">
-        <div className="col-span-1 md:col-span-3">
+      <div className="grid grid-cols-1 lg:grid-cols-7 gap-6">
+        <div className="col-span-1 lg:col-span-3">
           <QuickTransfer />
         </div>
-        <div className="col-span-1 md:col-span-4">
+        <div className="col-span-1 lg:col-span-4">
           <BalanceHistory />
         </div>
       </div>

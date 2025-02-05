@@ -10,7 +10,7 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <div className="flex">
-          <div className="w-64">
+          <div className="lg:w-64">
             <NavBar />
           </div>
           <div className="flex-1">

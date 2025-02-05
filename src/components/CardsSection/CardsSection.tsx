@@ -16,10 +16,10 @@ const CardsSection = ({ cards }: CardsSectionProps) => {
   return (
     <div className="col-span-2 lg:mb-6">
       <div className="flex justify-between items-center mb-4">
-        <h2 className="text-[22px] leading-[26px] text-primaryIndigo font-semibold">
+        <h2 className="text-base lg:text-[22px] leading-[26px] text-primaryIndigo font-semibold">
           My Cards
         </h2>
-        <button className="text-primaryIndigo text-[17px] font-semibold leading-5">
+        <button className="text-primaryIndigo text-sm lg:text-[17px] font-semibold leading-5">
           See All
         </button>
       </div>

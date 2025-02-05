@@ -19,7 +19,7 @@ const TransactionsSection: React.FC<TransactionsSectionProps> = ({
 }) => {
   return (
     <div className="col-span-1 lg:mb-6 w-[350px]">
-      <h2 className="text-[22px] mb-5 text-left font-semibold text-primaryIndigo leading-[26px]">
+      <h2 className="text-base lg:text-[22px] mb-5 text-left font-semibold text-primaryIndigo leading-[26px]">
         Recent Transaction
       </h2>
 

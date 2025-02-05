@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import * as d3 from "d3";
 import { colors } from "../../style/global/colors";
+import useDeviceType from '../../hooks/useDeviceType';
 
 interface ExpenseData {
   category: string;
@@ -17,6 +18,7 @@ const data: ExpenseData[] = [
 
 export const ExpenseStatistics = () => {
   const svgRef = useRef(null);
+  const deviceType = useDeviceType();
 
   useEffect(() => {
     if (!svgRef.current) return;
@@ -78,7 +80,7 @@ export const ExpenseStatistics = () => {
       .attr("text-anchor", "middle")
       .attr("dy", "0.35em") // Center text vertically
       .attr("fill", "white")
-      .attr("font-size", "14px")
+      .attr("font-size", deviceType === 'desktop' ? "1rem" : "13px")
       .attr("font-weight", "bold");
 
     // Add percentage
@@ -96,14 +98,14 @@ export const ExpenseStatistics = () => {
       .text((d) => d.data.category)
       .attr("x", 0)
       .attr("dy", "1.2em")
-      .attr("font-size", "1rem")
+      .attr("font-size", deviceType === 'desktop' ? "13px" : "11px")
       .attr("font-weight", "700");
     
   }, []);
 
   return (
     <div className="h-full">
-      <h2 className="text-[22px] leading-[26px] text-primaryIndigo font-semibold text-left mb-[18px]">
+      <h2 className="text-base lg:text-[22px] leading-[26px] text-primaryIndigo font-semibold text-left mb-[18px]">
         Expense Statistics
       </h2>
       <div className="flex flex-col items-center bg-white rounded-xl h-[calc(100%-44px)]">

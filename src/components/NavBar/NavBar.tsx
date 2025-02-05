@@ -19,7 +19,6 @@ interface NavItemType {
   href: string;
 }
 
-
 const navItems: NavItemType[] = [
   { icon: AiFillHome, label: "Dashboard", href: "/dashboard" },
   { icon: Transaction, label: "Transactions", href: "/transactions" },
@@ -35,12 +34,10 @@ const navItems: NavItemType[] = [
 export const NavBar = () => {
   const { pathname: currentPath } = useLocation();
   const deviceType = useDeviceType();
-  if (deviceType === "mobile") {
+  if (deviceType !== "desktop") {
     return (
-      <div className="fixed top-0 right-0 p-4">
-        <button className="p-2 rounded-full bg-white shadow-md">
-          <List size={32} />
-        </button>
+      <div className="fixed top-0 left-0 p-4">
+        <List size={18} />
       </div>
     );
   }
