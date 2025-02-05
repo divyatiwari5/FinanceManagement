@@ -1,4 +1,4 @@
-#### 🚀🚀 The project is being deployed on [Vercel](https://finance-management-gold.vercel.app/) 🚀🚀
+#### 🚀🚀 The project is being deployed on [Vercel](https://finance-management-gold.vercel.app/dashboard) 🚀🚀
 
 # 🗒️🗒️ Project Implementation 🗒️🗒️
 
