@@ -33,7 +33,7 @@ const Card = ({
       <div className="flex flex-row justify-between px-5 md:px-[26px] pt-4 md:pt-6">
         <div className="mb-4 md:mb-6 text-left">
           <p className={`${labelStyles[variant]} text-[10px] md:text-xs font-lato`}>Balance</p>
-          <p className="text-lg md:text-xl font-semibold font-lato">
+          <p className="text-base md:text-xl font-semibold font-lato">
             ${balance.toLocaleString()}
           </p>
         </div>
@@ -63,7 +63,7 @@ const Card = ({
       } bg-[linear-gradient(180deg,rgba(255,255,255,0.15)_0%,rgba(255,255,255,0)_100%)]`}>
         <div className="px-5 md:px-[26px] py-4 md:py-[22px] flex justify-between items-end">
           <div>
-            <p className="font-semibold text-lg md:text-[22px] font-lato">{cardNumber}</p>
+            <p className="font-semibold text-[15px] md:text-[22px] font-lato">{cardNumber}</p>
           </div>
           <div className="w-8 h-6 md:w-12 md:h-8">
             <BiLogoMastercard className="w-full h-full" />

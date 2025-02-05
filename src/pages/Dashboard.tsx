@@ -58,7 +58,7 @@ const Dashboard = () => {
   ];
 
   return (
-    <div className="p-6 px-10 bg-lightBlue">
+    <div className="p-6 px-10 bg-white lg:bg-lightBlue">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <CardsSection cards={cards} />
         <TransactionsSection transactions={transactions} />

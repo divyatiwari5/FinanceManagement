@@ -14,7 +14,7 @@ interface CardsSectionProps {
 
 const CardsSection = ({ cards }: CardsSectionProps) => {
   return (
-    <div className="col-span-2 mb-8">
+    <div className="col-span-2 lg:mb-6">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-[22px] leading-[26px] text-primaryIndigo font-semibold">
           My Cards

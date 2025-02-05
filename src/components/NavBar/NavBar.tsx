@@ -1,14 +1,17 @@
 import { AiFillHome } from "react-icons/ai";
-import { BiTransfer } from "react-icons/bi";
-import { FaUser, FaChartLine, FaCreditCard } from "react-icons/fa";
-import { GiReceiveMoney } from "react-icons/gi";
-import { MdMiscellaneousServices } from "react-icons/md";
-import { IoMdPricetags } from "react-icons/io";
-import { IoSettings } from "react-icons/io5";
+import { FaUser } from "react-icons/fa";
+import { HiWrenchScrewdriver } from "react-icons/hi2";
+import { TbSettingsFilled } from "react-icons/tb";
 import NavItem from "./NavItem";
 import { IconType } from "react-icons";
 import useDeviceType from "../../hooks/useDeviceType";
 import { List } from "@phosphor-icons/react";
+import { useLocation } from "react-router-dom";
+import CreditCard from "../svgs/CreditCard";
+import Loan from "../svgs/Loan";
+import MoneyIdea from "../svgs/MoneyIdea";
+import Transaction from "../svgs/Transaction";
+import Investment from "../svgs/Investment";
 
 interface NavItemType {
   icon: IconType;
@@ -16,22 +19,22 @@ interface NavItemType {
   href: string;
 }
 
+
 const navItems: NavItemType[] = [
   { icon: AiFillHome, label: "Dashboard", href: "/dashboard" },
-  { icon: BiTransfer, label: "Transactions", href: "/transactions" },
+  { icon: Transaction, label: "Transactions", href: "/transactions" },
   { icon: FaUser, label: "Accounts", href: "/accounts" },
-  { icon: FaChartLine, label: "Investments", href: "/investments" },
-  { icon: FaCreditCard, label: "Credit Cards", href: "/credit-cards" },
-  { icon: GiReceiveMoney, label: "Loans", href: "/loans" },
-  { icon: MdMiscellaneousServices, label: "Services", href: "/services" },
-  { icon: IoMdPricetags, label: "My Privileges", href: "/privileges" },
-  { icon: IoSettings, label: "Setting", href: "/settings" },
+  { icon: Investment, label: "Investments", href: "/investments" },
+  { icon: CreditCard, label: "Credit Cards", href: "/credit-cards" },
+  { icon: Loan, label: "Loans", href: "/loans" },
+  { icon: HiWrenchScrewdriver, label: "Services", href: "/services" },
+  { icon: MoneyIdea, label: "My Privileges", href: "/privileges" },
+  { icon: TbSettingsFilled, label: "Setting", href: "/settings" },
 ];
 
 export const NavBar = () => {
-  const currentPath = "/dashboard";
+  const { pathname: currentPath } = useLocation();
   const deviceType = useDeviceType();
-  console.log(deviceType);
   if (deviceType === "mobile") {
     return (
       <div className="fixed top-0 right-0 p-4">
@@ -43,15 +46,15 @@ export const NavBar = () => {
   }
 
   return (
-    <div className="fixed w-64 h-screen bg-white shadow-md p-5">
-      <div className="flex items-center gap-3 px-4 mb-8">
-        <FaChartLine />
-        <span className="text-2xl font-extrabold text-gray-800 font-inter">
+    <div className="fixed w-64 h-screen bg-white shadow-md">
+      <div className="flex items-center gap-3 pl-9 pb-[34px] pt-8">
+        <img src="/assets/task.png" alt="Task Logo" className="w-6 h-6" />
+        <span className="text-2xl font-extrabold text-primaryIndigo font-inter">
           Soar Task
         </span>
       </div>
 
-      <div className="flex flex-col gap-1">
+      <div className="flex flex-col">
         {navItems.map((item) => (
           <NavItem
             key={item.href}

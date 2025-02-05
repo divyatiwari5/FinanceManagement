@@ -35,7 +35,7 @@ export const QuickTransfer = () => {
         Quick Transfer
       </h2>
       <div className="bg-white rounded-xl p-6 h-[calc(100%-44px)]">
-        <div className="flex gap-8 mb-8">
+        <div className="flex gap-8 mb-6 lg:mb-7">
           {contacts.map((contact, index) => (
             <div key={index} className="flex flex-col items-center">
               <img
@@ -49,7 +49,7 @@ export const QuickTransfer = () => {
           ))}
           <div className="bg-white rounded-3xl shadow-[4px_4px_18px_-2px_rgba(231,228,232,0.8)] h-[50px] w-[50px] content-center m-auto">
             <CaretRight
-              size={13}
+              size={16}
               className="ml-[18px]"
               color={colors.primaryBlue}
               weight="bold"
