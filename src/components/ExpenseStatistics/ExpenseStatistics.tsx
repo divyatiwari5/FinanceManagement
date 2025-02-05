@@ -101,7 +101,7 @@ export const ExpenseStatistics = () => {
       .attr("font-size", deviceType === 'desktop' ? "13px" : "11px")
       .attr("font-weight", "700");
     
-  }, []);
+  }, [deviceType]);
 
   return (
     <div className="h-full">

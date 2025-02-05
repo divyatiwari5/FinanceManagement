@@ -1,12 +1,19 @@
 import { IoSettingsOutline, IoNotificationsOutline } from "react-icons/io5";
+import { useLocation } from "react-router-dom";
 import SearchBar from "./SearchBar/SearchBar";
 import { colors } from "../style/global/colors";
+import { routes } from "../routes/config";
 
 const Header = () => {
+  const { pathname } = useLocation();
+  const currentRoute = routes.find(route => route.path === pathname);
+  
   return (
     <header className="flex flex-col lg:flex-row items-center lg:justify-between px-8 py-4 bg-white">
       <div className="w-full lg:w-auto flex justify-center lg:justify-start items-center relative mb-5 lg:mb-0">
-        <h1 className="text-xl lg:text-[28px] text-primaryIndigo font-semibold">Overview</h1>
+        <h1 className="text-xl lg:text-[28px] text-primaryIndigo font-semibold">
+          {currentRoute?.title || "Overview"}
+        </h1>
         <img
           src="/assets/person1.png"
           alt="header-profile"

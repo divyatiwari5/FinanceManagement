@@ -1,39 +1,13 @@
-import { AiFillHome } from "react-icons/ai";
-import { FaUser } from "react-icons/fa";
-import { HiWrenchScrewdriver } from "react-icons/hi2";
-import { TbSettingsFilled } from "react-icons/tb";
-import NavItem from "./NavItem";
-import { IconType } from "react-icons";
-import useDeviceType from "../../hooks/useDeviceType";
 import { List } from "@phosphor-icons/react";
 import { useLocation } from "react-router-dom";
-import CreditCard from "../svgs/CreditCard";
-import Loan from "../svgs/Loan";
-import MoneyIdea from "../svgs/MoneyIdea";
-import Transaction from "../svgs/Transaction";
-import Investment from "../svgs/Investment";
-
-interface NavItemType {
-  icon: IconType | React.FC<{ isActive?: boolean }>;
-  label: string;
-  href: string;
-}
-
-const navItems: NavItemType[] = [
-  { icon: AiFillHome, label: "Dashboard", href: "/dashboard" },
-  { icon: Transaction, label: "Transactions", href: "/transactions" },
-  { icon: FaUser, label: "Accounts", href: "/accounts" },
-  { icon: Investment, label: "Investments", href: "/investments" },
-  { icon: CreditCard, label: "Credit Cards", href: "/credit-cards" },
-  { icon: Loan, label: "Loans", href: "/loans" },
-  { icon: HiWrenchScrewdriver, label: "Services", href: "/services" },
-  { icon: MoneyIdea, label: "My Privileges", href: "/privileges" },
-  { icon: TbSettingsFilled, label: "Setting", href: "/settings" },
-];
+import useDeviceType from "../../hooks/useDeviceType";
+import NavItem from "./NavItem";
+import { routes } from "../../routes/config";
 
 export const NavBar = () => {
   const { pathname: currentPath } = useLocation();
   const deviceType = useDeviceType();
+
   if (deviceType !== "desktop") {
     return (
       <div className="fixed top-0 left-0 p-4">
@@ -52,13 +26,13 @@ export const NavBar = () => {
       </div>
 
       <div className="flex flex-col">
-        {navItems.map((item) => (
+        {routes.map((route) => (
           <NavItem
-            key={item.href}
-            icon={item.icon}
-            label={item.label}
-            href={item.href}
-            isActive={currentPath === item.href}
+            key={route.path}
+            icon={route.icon}
+            label={route.title}
+            href={route.path}
+            isActive={currentPath === route.path}
           />
         ))}
       </div>
