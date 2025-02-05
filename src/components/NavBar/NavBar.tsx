@@ -14,7 +14,7 @@ import Transaction from "../svgs/Transaction";
 import Investment from "../svgs/Investment";
 
 interface NavItemType {
-  icon: IconType;
+  icon: IconType | React.FC<{ isActive?: boolean }>;
   label: string;
   href: string;
 }

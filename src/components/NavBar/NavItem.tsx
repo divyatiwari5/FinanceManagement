@@ -1,7 +1,8 @@
+import React from "react";
 import { IconType } from "react-icons";
 
 interface NavItemProps {
-  icon: IconType;
+  icon: IconType | React.FC<{ isActive?: boolean }>;
   label: string;
   isActive?: boolean;
   href: string;
@@ -23,7 +24,9 @@ const NavItem = ({
           : "text-darkGrey"
       }`}
     >
-      <Icon size={25}/>
+      {React.isValidElement(<Icon />) 
+        ? <Icon size={25} /> 
+        : <Icon isActive={isActive} />}
       <span className="text-lg font-medium">{label}</span>
     </a>
   );
