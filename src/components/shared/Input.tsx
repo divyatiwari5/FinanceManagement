@@ -14,14 +14,14 @@ const Input = ({
   disabled = false,
 }: InputProps) => {
   return (
-    <div className="mb-4">
-      <label className="block text-primaryBlack mb-2 text-left">{label}</label>
+    <div>
+      <label className="block text-primaryBlack mb-2 text-left text-[13px] lg:text-base">{label}</label>
       <input
         type={type}
         value={value}
         onChange={(e) => onChange?.(e.target.value)}
         disabled={disabled}
-        className="w-full p-2 border border-grey rounded-lg focus:outline-none focus:ring-2 text-primaryBlue"
+        className="w-full p-2 border border-grey rounded-lg focus:outline-none focus:ring-2 text-primaryBlue text-xs lg:text-base"
       />
     </div>
   );

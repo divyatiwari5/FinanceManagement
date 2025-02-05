@@ -29,13 +29,13 @@ const Settings = () => {
   };
 
   return (
-    <div className="max-w-4xl bg-white mx-10 my-[30px] rounded-3xl">
+    <div className="max-w-4xl bg-white m-6 lg:mx-10 lg:my-[30px] rounded-3xl">
       <div className=" rounded-lg p-6 shadow-sm">
         <Tabs tabs={TABS} activeTab={activeTab} onTabChange={setActiveTab} />
 
         {activeTab === "profile" && (
-          <div className="flex gap-8">
-            <div className="shrink-0">
+          <div className="flex flex-col md:flex-row gap-8">
+            <div className="flex justify-center md:block">
               <div className="relative w-24 h-24">
                 <img
                   src="/assets/person1.png"

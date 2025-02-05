@@ -22,8 +22,8 @@ interface ProfileFormProps {
 const ProfileForm = ({ formData, onInputChange, onSave }: ProfileFormProps) => {
   return (
     <div className="flex-1">
-      <div className="grid grid-cols-2 gap-6">
-        <Input
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6 ">
+      <Input
           label="Your Name"
           value={formData.name}
           onChange={(value) => onInputChange("name", value)}
@@ -76,7 +76,7 @@ const ProfileForm = ({ formData, onInputChange, onSave }: ProfileFormProps) => {
       <div className="flex justify-end mt-8">
         <button
           onClick={onSave}
-          className="h-[50px] bg-black text-white rounded-2xl w-[190px]"
+          className="h-[50px] bg-black text-white rounded-2xl w-full md:w-[190px]"
         >
           Save
         </button>
