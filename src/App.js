@@ -13,7 +13,7 @@ function App() {
           <div className="lg:w-64">
             <NavBar />
           </div>
-          <div className="flex-1">
+          <div className="flex-1 bg-lightBlue">
             <Header />
             <Routes>
               <Route path="/dashboard" element={<Dashboard />} />
