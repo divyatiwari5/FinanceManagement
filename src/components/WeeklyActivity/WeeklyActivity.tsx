@@ -168,10 +168,10 @@ const WeeklyActivity = () => {
 
   return (
     <div>
-      <h2 className="text-[22px] leading-[26px] text-primaryIndigo font-semibold text-left mb-[18px]">
+      <h2 className="text-base lg:text-[22px] leading-[26px] text-primaryIndigo font-semibold text-left mb-[18px]">
         Weekly Activity
       </h2>
-      <div className="w-full h-full min-h-[250px] bg-white rounded-xl">
+      <div className="w-full h-full lg:min-h-[250px] bg-white rounded-xl">
         <svg
           ref={svgRef}
           className="w-full h-full"

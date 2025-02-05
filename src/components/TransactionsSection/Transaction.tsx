@@ -18,11 +18,11 @@ const Transaction = ({ icon: Icon, title, date, amount, iconBgColor = 'bg-yellow
           <Icon size={24} />
         </div>
         <div>
-          <p className="font-medium text-base text-primaryBlack">{title}</p>
-          <p className="text-[15px] text-primaryBlue">{date}</p>
+          <p className="font-medium text-sm lg:text-base text-primaryBlack">{title}</p>
+          <p className="text-xs lg:text-[15px] text-primaryBlue">{date}</p>
         </div>
       </div>
-      <span className={`font-medium text-base ${isPositive ? 'text-green' : 'text-red'}`}>
+      <span className={`font-medium text-[11px] lg:text-base ${isPositive ? 'text-green' : 'text-red'}`}>
         {isPositive ? '+' : '-'}${Math.abs(amount).toLocaleString()}
       </span>
     </div>

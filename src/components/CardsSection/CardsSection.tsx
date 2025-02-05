@@ -14,17 +14,17 @@ interface CardsSectionProps {
 
 const CardsSection = ({ cards }: CardsSectionProps) => {
   return (
-    <div className="col-span-2 mb-8">
+    <div className="col-span-2 lg:mb-6">
       <div className="flex justify-between items-center mb-4">
-        <h2 className="text-[22px] leading-[26px] text-primaryIndigo font-semibold">
+        <h2 className="text-base lg:text-[22px] leading-[26px] text-primaryIndigo font-semibold">
           My Cards
         </h2>
-        <button className="text-primaryIndigo text-[17px] font-semibold leading-5">
+        <button className="text-primaryIndigo text-sm lg:text-[17px] font-semibold leading-5">
           See All
         </button>
       </div>
 
-      <div className="flex gap-[30px]">
+      <div className="flex overflow-x-auto gap-[30px] pb-4 -mx-4 px-4 md:mx-0">
         {cards.map((card, index) => (
           <Card
             key={index}

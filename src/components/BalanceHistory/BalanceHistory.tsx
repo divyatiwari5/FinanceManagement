@@ -163,7 +163,7 @@ export const BalanceHistory = () => {
 
   return (
     <div className="h-full">
-      <h2 className="text-[22px] leading-[26px] text-primaryIndigo font-semibold text-left mb-[18px]">
+      <h2 className="text-base lg:text-[22px] leading-[26px] text-primaryIndigo font-semibold text-left mb-[18px]">
         Balance History
       </h2>
       <div className="bg-white rounded-xl p-6 h-[calc(100%-44px)] w-full">
