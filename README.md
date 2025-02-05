@@ -40,6 +40,11 @@ Implemented a mobile-first approach with responsive breakpoints using tailwind.
     - [x] Atomic design principles
     - [x] Reusable components
     - [x] Clear separation of concerns
+
+4. Future Improvements
+    - [x] State Management
+    - [x] Testing
+    - [x] Performance Monitoring
   
 
 ## Available Scripts
@@ -67,7 +72,4 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
-4. Future Improvements
-    - [x] State Management
-    - [x] Testing
-    - [x] Performance Monitoring
+
